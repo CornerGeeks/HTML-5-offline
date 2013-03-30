@@ -1,4 +1,4 @@
-// http://jonathanstark.com/blog/debugging-html-5-offline-application-cache?filename=2009/09/27/debugging-html-5-offline-application-cache/ - 1
+// http://jonathanstark.com/blog/debugging-html-5-offline-application-cache?filename=2009/09/27/debugging-html-5-offline-application-cache/ 
 var cacheStatusValues = [];
 cacheStatusValues[0] = 'uncached';
 cacheStatusValues[1] = 'idle';
@@ -22,7 +22,7 @@ function logEvent(e) {
     if (type == 'error' && navigator.onLine) {
         message+= ' (prolly a syntax error in manifest)';
     }
-    console.log(message);
+    if(console && console.log) console.log(message);
     var l = document.getElementById("log");
     if(l) l.innerHTML = message + "\n" +  l.innerHTML;
 }
@@ -57,19 +57,7 @@ window.applicationCache.addEventListener('updateready', function(e) {
     }
 }, false);
 updateStatus(navigator.onLine);
-/*
-window.applicationCache.addEventListener(
-    'updateready', 
-    function(){
-        if(confirm("Updated cache. Ok to update!")){
-            window.applicationCache.swapCache();
-            console.log('swap cache has been called');
-        }
-    }, 
-    false
-);
 
-//*/
 cache.addEventListener('cached', logEvent, false);
 cache.addEventListener('checking', logEvent, false);
 cache.addEventListener('downloading', logEvent, false);
@@ -78,9 +66,3 @@ cache.addEventListener('noupdate', logEvent, false);
 cache.addEventListener('obsolete', logEvent, false);
 cache.addEventListener('progress', logEvent, false);
 cache.addEventListener('updateready', logEvent, false);
-
-//*/
-
-//setInterval(function(){cache.update()}, 10000);
-
-// http://jonathanstark.com/blog/debugging-html-5-offline-application-cache?filename=2009/09/27/debugging-html-5-offline-application-cache/ - 0

@@ -1,4 +1,4 @@
-<html manifest="offline-manifest.php">
+<html manifest="manifest.php">
 <head>
 	<title>Offline</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
@@ -10,19 +10,20 @@
 	<p>This page is available when i am offline</p>
 	<p>Current status <h2 id='status'></h2></p>
 	Onsite Image in Cache<br />
-	<img src="img/offline-image-online.png" /><br />
+	<img src="img/image-online.png" height="100px"/><br />
 	Onsite Image not Cache<br />
-	<img src="img/offline-image-not-in-cache.png" /> <br />
+	<img src="img/image-not-in-cache.png" height="100px"/> <br />
 	Offsite Image not Cache<br />
-	<img src="http://cornergeeks.com/logos/cornergeeks.jpg" /><br />
+	<img src="https://raw.github.com/CornerGeeks/HTML-5-offline/master/img/cornergeeks.jpg" height="100px" /><br />
+	
 	<br />
 	<input type="button" onclick="window.applicationCache.update()" value="check for new manifest!">
 	<textarea id="log" style="width: 100%; height: 300px"></textarea>
 	<ul>
-		<li><a href="offline.htm">Offline page</a></li>
-		<li><a href="offline-not-in-cache.htm">Page - not in cache</a></li>
-		<li><a href="offline-fallback.htm">Fall back page</a></li>
-		<li><a href="offline-this-page-doesnt-exist.htm">404</a></li>
+		<li><a href="index.htm">Offline page</a></li>
+		<li><a href="not-in-cache.htm">Page - not in cache</a></li>
+		<li><a href="fallback.htm">Fall back page</a></li>
+		<li><a href="this-page-doesnt-exist.htm">404</a></li>
 		<li><a href="http://google.com">Google</a>
 	</ul>
 	<script src="offline.js"></script>
